@@ -77,8 +77,8 @@ pathStructure <- function(path.dir = NULL,
      for (i in group) {
        dir.create(showWarnings = FALSE, path = paste(path.dir, 'readDbR/', sep = ''))
        dir.create(showWarnings = FALSE, path = paste(path.dir, 'readDbR/', i, sep = ''))
-       dir.create(showWarnings = FALSE, path = paste(path.dir, 'readDBBash/', sep = ''))
-       dir.create(showWarnings = FALSE, path = paste(path.dir, 'readDBBash/', i, sep = ''))
+       dir.create(showWarnings = FALSE, path = paste(path.dir, 'readDbBash/', sep = ''))
+       dir.create(showWarnings = FALSE, path = paste(path.dir, 'readDbBash/', i, sep = ''))
        dir.create(showWarnings = FALSE, path = paste(path.dir, 'assignElevation/', sep = ''))
        dir.create(showWarnings = FALSE, path = paste(path.dir, 'assignElevation/', i, sep = ''))
        dir.create(showWarnings = FALSE, path = paste(path.dir, 'assignElevation/', i, '/alt.unassig', sep = ''))
