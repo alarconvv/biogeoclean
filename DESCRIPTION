@@ -46,28 +46,4 @@ Depends:
     R (>= 3.2.1)
 Suggests:
     roxygen2
-Collate:
-    'countryNames.R'
-    'gbifDownSp.R'
-    'ISOToCountry.R'
-    'readAndWrite.R'
-    'checkCoord.R'
-    'coordToCountry.R'
-    'coordToISO.R'
-    'countryToCentroid.R'
-    'countryToISO.R'
-    'assignElevation.R'
-    'cutRange.R'
-    'deltPointOrSp.R'
-    'invasiveSp.R'
-    'meanPropinquity.R'
-    'pathStructure.R'
-    'pointsAtSea.R'
-    'readDbBash.R'
-    'readDbR.R'
-    'splitGeoref.R'
-    'spOutPoly.R'
-    'stackSp.R'
-    'usefulSp.R'
-    'elevFromGg.R'
 RoxygenNote: 5.0.1
