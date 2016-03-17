@@ -37,12 +37,12 @@ Imports:
     stats,
     utils,
     methods,
+    maptools,
     graphics,
     datasets,
     grDevices,
     lattice
 Depends:
-    maptools,
     R (>= 3.2.1)
 Suggests:
     roxygen2
