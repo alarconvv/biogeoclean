@@ -57,7 +57,7 @@ library:
 #                    dependencies = T, repos = 'https://www.icesi.edu.co/CRAN/')
 
 library('devtools')	
-#install_github('alarconvv/geocleaMT', dependencies = TRUE)	
+install_github('alarconvv/geocleaMT', dependencies = TRUE)	
 library('geocleaMT')	
 	
 library('plyr')	
