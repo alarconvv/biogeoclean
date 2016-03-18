@@ -57,7 +57,7 @@ library:
 #                    dependencies = T, repos = 'https://www.icesi.edu.co/CRAN/')
 
 library('devtools')	
-install_github('alarconvv/geocleaMT', dependencies = TRUE)	
+#install_github('alarconvv/geocleaMT', dependencies = TRUE)	
 library('geocleaMT')	
 	
 library('plyr')	
@@ -230,7 +230,6 @@ We can see the structure, and some basic statistics of the input data, including
 
 
 ```{r,eval=TRUE}
-str(Example)	
 	
 head(Example, 1L)	
 	
@@ -264,10 +263,10 @@ knitr::kable(readDbR, format = 'markdown')
 
 ```
 
-The output file will be saved in 'readDBR/Mammalia/' path:
+The output file will be saved in 'readDbR/Mammalia/' path:
 
 ```{r,eval=TRUE,echo=TRUE}
-out.readDbR <- readAndWrite(action = 'read', path = 'readDBR/Mammalia/',
+out.readDbR <- readAndWrite(action = 'read', path = 'readDbR/Mammalia/',
                             frmt = 'readRDS', name = 'out.readDbR')
 
 
@@ -308,7 +307,7 @@ readDbBash <- readDbBash(data          = 'Example.txt',
                          delt.undeterm = T,
                          save.name     = 'out.readDbBash',
                          wrt.frmt      = 'saveRDS',
-                         save.in       = 'readDBBash/Mammalia/')
+                         save.in       = 'readDbBash/Mammalia/')
 }
 ```
 
@@ -386,9 +385,12 @@ readAndWrite(action = 'write', frmt = 'saveTXT', path = 'tables/',
              name = 'FromGg_example.txt', object = FromGg)
 ```
 
+
 ```{r,eval=TRUE,echo=TRUE}
 knitr::kable(FromGg, format = 'markdown')
 ```
+
+
 NOTE: If we get the message `Error in Call.API$results[[1]] :
 subscript out of bounds error', you must wait for 24 hours to access
 again the Google Maps Elevation API.
@@ -491,7 +493,7 @@ When we have the list of non-invasive species that inhabit on The Biogeographic 
 
 The _**gbifDownSp**_ function works as a wrapper for the **occ_search** function from the _**rgif**_ package. You can use some additional parameters inherited from **occ_search** as **limit**, **basisOfRecord**, **country**, **publishingCountry**, **lastInterpreted**, **geometry**, **collectionCode**, **institutionCode** and **year**.
 
-```{r,eval=FALSE, results='hide',comment=FALSE,message=FALSE, warning=FALSE}
+```{r,eval=TRUE, results='hide',comment=FALSE,message=FALSE, warning=FALSE}
 # Read the list of species to download. It can be the output file of the 
 # invasiveSp function.
 
@@ -913,7 +915,7 @@ Now we prepare a single file with the data cleaned, and 'That's all folks'
 ```{r,eval=TRUE, results='hide',comment=FALSE,message=FALSE, warning=FALSE}
 out.useful <- list.files('usefulSp/Mammalia/useful/' )	
 	
-stackSp <- stackSp(data            = out.useful,	
+stacksp <- stackSp(data            = out.useful,	
                    rd.frmt         = 'readRDS' ,	
                    path            = 'usefulSp/Mammalia/useful/',	
                    save.name       = 'stackSp_example' ,	
@@ -922,7 +924,7 @@ stackSp <- stackSp(data            = out.useful,
 ```
 
 ```{r,eval=TRUE,echo=TRUE}
-knitr::kable(StackSp,  format = 'markdown')
+knitr::kable(stacksp,  format = 'markdown')
 ```
 
 We might want some information about the spatial distribution as a whole or by species. These metrics can be the mean propinquity, median propinquity, mode, skewness, etc.
