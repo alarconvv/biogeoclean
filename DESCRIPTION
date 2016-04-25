@@ -1,5 +1,6 @@
 Package: geocleaMT
-Description: This package is a cleaning protocol for distributional data and an
+Description: 
+	This package is a cleaning protocol for distributional data and an
     automated tool to provide the necessary data mining process before any diversity
     analysis. The protocol takes into account the most common mistakes found in
     distributional records and attempts to minimize its possibility, increasing
@@ -17,33 +18,28 @@ License: GPL-2
 Title: A Package to Clean/Test Georeferenced Data
 Version: 1.016-0317
 Date: 2016-03-17
-Authors@R: c(person("Viviana", "R-Alarcon", role = c("aut", "cre"),
+Author: c(person("Viviana", "R-Alarcon", role = c("aut", "cre"),
     email = "alarconvv@gmail.com"),
     person("Daniel R", "Miranda-Esquivel", role = "aut",
     email = "dmiranda@uis.edu.co"))
-Maintainer: Viviana R-Alarcon <alarconvv@gmail.com>
+Maintainer: Daniel R Miranda-Esquivel <dmiranda@uis.edu.co>
 BugReports: https://github.com/alarconvv/geocleaMT/issues
 URL: https://github.com/alarconvv/geocleaMT
 LazyData: true
-Imports:
-    reshape2,
-    RJSONIO,
-    data.table,
-    modeest,
-    vegan,
-    RCurl,
-    rgbif,
-    plyr,
-    stats,
-    utils,
-    methods,
-    maptools,
-    graphics,
-    datasets,
-    grDevices,
-    lattice
 Depends:
     R (>= 3.2.1)
+Imports:
+	maptools,
+	modeest,
+	methods,
+	utils,
+	graphics,
+	stats,
+	vegan,
+	rgbif,
+	RJSONIO,
+	plyr,
+	data.table
 Suggests:
     roxygen2
 RoxygenNote: 5.0.1
