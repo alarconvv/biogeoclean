@@ -116,7 +116,7 @@ invasiveSp <- function(data                = NULL,
     #! sino esta
     if (length(ibis) == 0) {
       #! revise en la base de datos electronica del 'Invasive Species specialist Group'
-      urls <- paste('http://www.issg.org/database/species/search.asp?sts=sss&st=sss&fr=1&x=13&y=9&sn=',
+      urls <- paste('http://issg.org/database/species/search.asp?sts=sss&st=sss&fr=1&x=11&y=1&sn=',
                   foreign.sp.table$genus[i],'+',
                   foreign.sp.table$specificEpithet[i],'&rn=&hci=-1&ei=-1&lang=EN', sep = '')
     doc <- getURL(urls)
