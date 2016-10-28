@@ -60,7 +60,7 @@
 
 
 
-delPointsOrSp2 <- function (data = NULL, 
+delPointsOrSp <- function (data = NULL, 
                             rd.frmt = "readRDS", 
                             path = NULL, 
                             west = -120, 
