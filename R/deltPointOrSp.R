@@ -60,77 +60,86 @@
 
 
 
-delPointsOrSp <- function(data         = NULL,
-                          rd.frmt      = 'readRDS',
-                          path         = NULL,
-                          west         = -120,
-                          east         = -65,
-                          south        = -30,
-                          north        = 30,
-                          plot.distrib = T,
-                          wrt.frmt     = 'saveRDS',
-                          save.file    = NULL){
-
-  tab.info <- as.data.frame(matrix(NA,length(data),5))
-  colnames(tab.info) <- c('Sp','Initial.Sp','Initial.Occ','Final.Sp',
-                        'Final.Occ')
+delPointsOrSp2 <- function (data = NULL, 
+                            rd.frmt = "readRDS", 
+                            path = NULL, 
+                            west = -120, 
+                            east = -65, 
+                            south = -25, 
+                            north = 25, 
+                            plot.distrib = T, 
+                            wrt.frmt = "saveRDS", 
+                            save.file = NULL) 
+{
+  tab.info <- as.data.frame(matrix(NA, length(data), 5))
+  colnames(tab.info) <- c("Sp", "Initial.Sp", "Initial.Occ", 
+                          "Final.Sp", "Final.Occ")
+  i<-2
   for (i in 1:length(data)) {
-   
-    sp.table <- readAndWrite(action = 'read', frmt = rd.frmt ,
-                               path = path, name = data[i])
+    sp.table <- readAndWrite(action = "read", frmt = rd.frmt, 
+                             path = path, name = data[i])
     tab.info$Sp[i] <- data[i]
     tab.info$Initial.Sp[i] <- length(unique(sp.table$species))
     tab.info$Initial.Occ[i] <- nrow(sp.table)
-    y <- which(as.numeric(sp.table$decimalLongitude) < west | as.numeric(sp.table$decimalLongitude) > east)
-    x <- which(as.numeric(sp.table$decimalLatitude) < south | as.numeric(sp.table$decimalLatitude) > north)
+    y <- which(as.numeric(sp.table$decimalLongitude) < west | 
+                 as.numeric(sp.table$decimalLongitude) > east)
+    x <- which(as.numeric(sp.table$decimalLatitude) < south | 
+                 as.numeric(sp.table$decimalLatitude) > north)
     total <- unique(c(y, x))
     names <- unique(sp.table$species[total])
     if (!length(total) == 0) {
-     
       if (plot.distrib == T) {
-     data(wrld_simpl)
-     plot(wrld_simpl)
-     points(x = sp.table$decimalLongitude[-total],
-            y = sp.table$decimalLatitude[-total],
-            col = 'blue', pch = 20)
-      points(x = sp.table$decimalLongitude[total],
-            y = sp.table$decimalLatitude[total],
-            col = rainbow(length(names)), pch = 20)
-      #legend('topleft', legend = names, title = 'Species', 
-            #fill = rainbow(length(names)), cex = 0.56, bty = 'n')
-    }
+        data(wrld_simpl)
+        plot(wrld_simpl)
+        points(x = as.numeric(sp.table$decimalLongitude[-total]), 
+               y = as.numeric(sp.table$decimalLatitude[-total]), col = "blue", 
+               pch = 20)
+        points(x = as.numeric(sp.table$decimalLongitude[total]), 
+               y = as.numeric(sp.table$decimalLatitude[total]), col = rainbow(length(names)), 
+               pch = 20)
+      }
       for (sp in 1:length(names)) {
-      message('There are points inside of the range, you can see them in red color')
-      print(paste('Check the distribution:', names[sp]))
-      input1 <- readline('Delete points? \n (yes: y or not: n)= ')
-      if (input1 == 'y' | input1 == 'yes') {
-        find.points <- which(sp.table$species[total] == as.character(names[sp]))
-        total <- total[find.points]
-        sp.table <- as.data.frame(sp.table[-total,])
-        } else {
-          input2 <- readline('Delete species? \n (yes: y or not: n)= ')
-          if (input2 == 'y' | input1 == 'yes') {
-            find.points <- which(sp.table$species == as.character(names[sp]))
-            sp.table <- as.data.frame(sp.table[-find.points, ])
+        message("There are points inside of the range, you can see them in red color")
+        print(paste("Check the distribution:", names[sp]))
+        input1 <- readline("Delete points? \n (yes: y or not: n)= ")
+        if (input1 == "y" | input1 == "yes") {
+          find.points <- which(sp.table$species[total] == 
+                                 as.character(names[sp]))
+          total <- total[find.points]
+          sp.table <- as.data.frame(sp.table[-total, 
+                                             ])
+        }
+        else {
+          input2 <- readline("Delete species? \n (yes: y or not: n)= ")
+          if (input2 == "y" | input1 == "yes") {
+            find.points <- which(sp.table$species == 
+                                   as.character(names[sp]))
+            sp.table <- as.data.frame(sp.table[-find.points, 
+                                               ])
           }
         }
-  y <- which(as.numeric(sp.table$decimalLongitude) < west | as.numeric(sp.table$decimalLongitude) > east)
-    x <- which(as.numeric(sp.table$decimalLatitude) < south | as.numeric(sp.table$decimalLatitude) > north)
-      total <- unique(c(y, x))
-      dev.off()
+        y <- which(as.numeric(sp.table$decimalLongitude) < 
+                     west | as.numeric(sp.table$decimalLongitude) > 
+                     east)
+        x <- which(as.numeric(sp.table$decimalLatitude) < 
+                     south | as.numeric(sp.table$decimalLatitude) > 
+                     north)
+        total <- unique(c(y, x))
+        if (plot.distrib == T) {
+        dev.off()
+        }
       }
-      } else {
-        print(paste(data[i],': There are no points in the range',sep = ''))
-        
-      }
+    }
+    else {
+      print(paste(data[i], ": There are no points in the range", 
+                  sep = ""))
+    }
     if (!nrow(sp.table) == 0) {
-    readAndWrite(action = 'write', frmt = wrt.frmt, object = sp.table,
+      readAndWrite(action = "write", frmt = wrt.frmt, object = sp.table, 
                    path = save.file, name = data[i])
     }
     tab.info$Final.Sp[i] <- length(unique(sp.table$species))
     tab.info$Final.Occ[i] <- nrow(sp.table)
   }
-  
   return(tab.info)
-
 }
