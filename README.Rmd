@@ -1,14 +1,7 @@
----
-title: 'geocleaMT: An R package to cleaning geographical data from electronic biodatabases'
-author: "Viviana R-Alarcon and Daniel R Miranda-Esquivel (dmiranda@uis.edu.co)"
-date: '`r Sys.Date()`'
-output:
-  pdf_document: default
-  html_document:
-    css: style.css
-vignette: |
-  %\VignetteIndexEntry{'geocleaMT: An R package to cleaning geographical data from electronical biodatabases'} %\VignetteEngine{knitr::rmarkdown} %\usepackage[utf8]{inputenc}
----
+
+#title: 'geocleaMT: An R package to cleaning geographical data from electronic biodatabases'
+##author: "Viviana R-Alarcon and Daniel R Miranda-Esquivel (dmiranda@uis.edu.co)"
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
