@@ -1,5 +1,5 @@
 
-#title: 'geocleaMT: An R package to cleaning geographical data from electronic biodatabases'
+#title: 'biogeoclean: An R package to cleaning geographical data from electronic biodatabases'
 ##author: "Viviana R-Alarcon and Daniel R Miranda-Esquivel (dmiranda@uis.edu.co)"
 
 
@@ -7,7 +7,7 @@
 knitr::opts_chunk$set(cache=TRUE)
 ```
 
-_**geocleaMT**_ is a cleaning protocol for distributional data and an
+_**biogeoclean**_ is a cleaning protocol for distributional data and an
     automated tool to provide the necessary data mining process before any diversity
     analysis. The protocol takes into account the most common mistakes found in
     distributional records and attempts to minimize its possibility, increasing
@@ -22,7 +22,7 @@ _**geocleaMT**_ is a cleaning protocol for distributional data and an
 
 ------
 
-## **1.0** A worked example for *geocleaMT* package (R-Alarcon and Miranda-Esquivel, submitted)
+## **1.0** A worked example for *biogeoclean* package (R-Alarcon and Miranda-Esquivel, submitted)
 
 
 ### *1.1* Preliminars
@@ -38,7 +38,7 @@ if (dev.cur() != 1){
 ```
 
 
-Then, we get the latest version of _**geocleaMT**_ from GitHub repository, and load the 
+Then, we get the latest version of _**biogeoclean**_ from GitHub repository, and load the 
 library:
 
 
@@ -50,8 +50,8 @@ library:
 #                    dependencies = T, repos = 'https://www.icesi.edu.co/CRAN/')
 
 library('devtools')	
-#install_github('alarconvv/geocleaMT', dependencies = TRUE)	
-library('geocleaMT')	
+#install_github('alarconvv/biogeoclean', dependencies = TRUE)	
+library('biogeoclean')	
 	
 library('plyr')	
 library('rgbif')	
@@ -179,7 +179,7 @@ After download the zip file, we have a folder with some information files. The f
 
 ### *1.2* The process
 
-All the files imported or exported from _**geocleaMT**_ follow the headers
+All the files imported or exported from _**biogeoclean**_ follow the headers
 proposed by the Darwin Core standard (Wieczorek et al. 2012), as it is used by GBIF.
 
 
